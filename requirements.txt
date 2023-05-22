@@ -1,0 +1,7 @@
+streamlit
+numpy
+tensorflow
+keras
+io
+os
+Image
