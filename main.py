@@ -18,7 +18,8 @@ def load_image():
     """Создание формы для загрузки изображения"""
     # Форма для загрузки изображения средствами Streamlit
     uploaded_file = st.file_uploader(
-        label='Выберите изображение для распознавания')
+        label='Выберите изображение для распознавания',
+        type=['jpg', 'jpeg'])
     if uploaded_file is not None:
         # Получение загруженного изображения
         image_data = uploaded_file.getvalue()
@@ -33,7 +34,7 @@ def load_image():
 # @st.cache(allow_output_mutation=True)
 @st.cache_resource()
 def load_model():
-    model = keras.models.load_model('communication_model.h5')
+    model = keras.models.load_model('communication_model_new.h5')
     return model
 
 
@@ -45,13 +46,13 @@ def preprocess_image(img):
     return x
 
 def print_predictions(predictions):
-    classes = ['АЦП', 'Вышки', 'Медиаконвертер', 'Спикерфоны', 'Спутниковые антенны', 'Трансивер', 'коммутатор',
-               'маршрутизатор', 'Рация', 'цифровые антенны']
+    classes = ['АЦП', 'Вышка сотовой связи', 'Медиаконвертер', 'Спикерфон', 'Спутниковые антенны', 'Трансивер', 'Коммутатор',
+               'Маршрутизатор', 'Рация', 'Цифровая антенна']
     st.write(classes[np.argmax(predictions[0])])
 
 model = load_model()
 # Выводим заголовок страницы
-st.title('Классификация изображений')
+st.title('Классификация оборудования связи')
 # Выводим форму загрузки изображения и получаем изображение
 img = load_image()
 # Показывам кнопку для запуска распознавания изображения
@@ -66,4 +67,44 @@ if result:
     st.write('**Результаты распознавания:**')
     # Выводим результаты распознавания
     print_predictions(preds)
+
+st.write('')
+st.write('')
+st.write('')
+st.write('')
+st.write('')
+st.write('')
+st.write('')
+st.write('')
+st.write('')
+st.write('')
+st.write('')
+st.write('')
+st.write('')
+st.write('')
+st.write('')
+st.write('')
+st.write('')
+st.write('')
+st.write('')
+st.write('')
+st.write('')
+st.write('')
+st.write('')
+st.write('')
+st.write('')
+st.write('')
+st.write('')
+st.divider()
+st.subheader('Проект выполнили:')
+st.write('Овчинников Н.С. - РИ-120913')
+st.write('Петрушина Н.Д. - РИ-120931')
+st.write('Локтионов Н.В. - РИ-120931')
+st.write('Довгань Е.А. - РИ-211111')
+st.write('')
+st.write('')
+st.write('')
+st.write('')
+st.columns(3)[1].caption("Екатеринбург 2023")
+
 
